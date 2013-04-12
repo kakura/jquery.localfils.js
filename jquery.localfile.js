@@ -38,11 +38,12 @@
     };
 
     $.fn.handleImageSelect = function(option){
-	if(!option){
+	if(!option || option.elem == undefined){
 	    $(this).after('<div id="image_field"></div>');
 	    var elem = $('#image_field');
-	    option = {elem: elem};
+	    option.elem = elem;
 	}
+
 	$.extend($.fn.handleImageSelect.config, option);
 	$(this).bind('change' , _show);
     };
